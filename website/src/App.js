@@ -54,7 +54,7 @@ function App() {
       <OpeningHours mediaQuery={mediaQuery} t={t}></OpeningHours>
       <Flavors mediaQuery={mediaQuery} t={t}></Flavors>
       <Toppings mediaQuery={mediaQuery}></Toppings>
-      perro
+      
       
 
       <div className="App">
