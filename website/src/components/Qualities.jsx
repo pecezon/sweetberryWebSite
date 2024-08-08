@@ -13,27 +13,27 @@ const Qualities = ({mediaQuery, t}) => {
         <Box
             width="100%"
             display="flex"
-            backgroundColor="lightblue"
-            margin="1rem"
-            sx={{padding: (mediaQuery ? '1.5rem' : '1rem')}}
-            border="1px solid black"
+            backgroundColor={colors.fadedbluey}
+            //margin="1rem"
+            //sx={{padding: (mediaQuery ? '1.5rem' : '1rem')}}
+            //border="1px solid black"
             justifyContent="center"
         >
             <Box
                 width="90%"
-                backgroundColor="lightgreen"
+                //backgroundColor="lightgreen"
                 padding="1rem"
-                border="1px solid black"
+                //border="1px solid black"
                 display="flex"
                 justifyContent="space-around"
                 alignItems="flex-start"
                 flexWrap="wrap"
             >
-                <QualityIcon quality={t('fastDelivery')} ico={<BoltOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></BoltOutlinedIcon>}></QualityIcon>
-                <QualityIcon quality={t('flavorVariety')} ico={<IcecreamOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></IcecreamOutlinedIcon>}></QualityIcon>
-                <QualityIcon quality={t('freshIngredients')} ico={<DeviceThermostatOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></DeviceThermostatOutlinedIcon>}></QualityIcon>
-                <QualityIcon quality={t('customerService')} ico={<SupportAgentOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></SupportAgentOutlinedIcon>}></QualityIcon>
-                <QualityIcon quality={t('cozyAtmosphere')} ico={<StorefrontOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></StorefrontOutlinedIcon>}></QualityIcon>
+                <QualityIcon mediaQuery={mediaQuery} quality={t('fastDelivery')} ico={<BoltOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></BoltOutlinedIcon>}></QualityIcon>
+                <QualityIcon mediaQuery={mediaQuery} quality={t('flavorVariety')} ico={<IcecreamOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></IcecreamOutlinedIcon>}></QualityIcon>
+                <QualityIcon mediaQuery={mediaQuery} quality={t('freshIngredients')} ico={<DeviceThermostatOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></DeviceThermostatOutlinedIcon>}></QualityIcon>
+                <QualityIcon mediaQuery={mediaQuery} quality={t('customerService')} ico={<SupportAgentOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></SupportAgentOutlinedIcon>}></QualityIcon>
+                <QualityIcon mediaQuery={mediaQuery} quality={t('cozyAtmosphere')} ico={<StorefrontOutlinedIcon sx={{fontSize: "40px", m: "0.5rem", color: (colors.lightdarkgrey)}}></StorefrontOutlinedIcon>}></QualityIcon>
             </Box>
         </Box>
     )

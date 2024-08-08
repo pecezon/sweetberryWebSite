@@ -1,25 +1,23 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import colors from "../utils/colors";
+import theme from "../utils/themes";
 
-const QualityIcon = ({ quality, ico }) => {
+const QualityIcon = ({ quality, ico, mediaQuery }) => {
     return (
         <Box
-            width={"150px"}
-            maxWidth={"150px"}
+            width={"90px"}
             display="flex"
             flexDirection="column"
             alignItems="center"
-            border="1px solid black"
+            margin="1rem 0.1rem"
         >
             {ico}
-            <h3
-                style={{
-                    margin: '0.5rem 0',
-                    fontWeight: '300',
-                    textAlign: 'center',
-                    color: (colors.lightdarkgrey)
+            <Typography
+                variant={mediaQuery ? "body1" : "body1P"}
+                sx={{
+                    textAlign: "center",
                 }}
-            >{quality}</h3>
+            >{quality}</Typography>
         </Box>
     );
 }

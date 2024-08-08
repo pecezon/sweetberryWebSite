@@ -8,8 +8,8 @@
         "home": "Inicio",
         "reviews": "Reseñas",
     "language": "Esp 🇲🇽",
-    "mainAnnouncementTitle": "¡Alerta de nuevo sabor!",
-    "mainAnnouncementDescription": "¡Prueba nuestro nuevo sabor, Mango Tango, por tiempo limitado!",
+    "mainAnnouncementTitle": "El mejor yogurth congelado que encontraras",
+    "mainAnnouncementDescription": "Descubre los deliciosos sabores que nos hacen el mejor yogurt congelado que habras probado",
     "mainAnnouncementButton": "Ver Sabores",
     "fastDelivery": "Entrega Rápida",
     "flavorVariety": "Variedad de Sabores",
@@ -24,6 +24,8 @@
     "saturday": "Sábado",
     "sunday": "Domingo",
     "hours": "Horario de Atención",
-    "rateUs": "Califícanos",
-    "alreadyRated": "Ya has calificado este sabor. ¡Gracias!"
+    "rateUs": "Prueba y califica los deliciosos sabores que te ofrecemos",
+    "alreadyRated": "Ya has calificado este sabor. ¡Gracias!",
+    "customerReviews": "Reseñas de Clientes",
+    "address": "Av Adolfo López Mateos 809, Zona Centro, 22800 Ensenada, B.C."
 }

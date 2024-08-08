@@ -2,96 +2,109 @@ import { Box, Typography, Button } from "@mui/material";
 import colors from "../utils/colors";
 
 
-const MainAnnouncement = ({mediaQuery, t}) => {
+const MainAnnouncement = ({mediaQuery, t, flavorsRef}) => {
+
+    const scrollToSection = (elementRef) => {
+        if (elementRef && elementRef.current) {
+            elementRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }else{
+            console.log('Pendejo');
+        }
+    };
 
     return (
         <Box
             width="100%"
             display="flex"
-            backgroundColor="lightblue"
-            margin="1rem"
-            sx={{padding: (mediaQuery ? '1.5rem' : '1rem')}}
-            border="1px solid black"
+            backgroundColor={colors.fadedgreeny}
+            //margin="1rem"
+            //sx={{padding: (mediaQuery ? '1.5rem' : '1rem')}}
+            //border="1px solid black"
             justifyContent="center"
+            marginTop={(mediaQuery ? '100px' : '65px')}
         >
             <Box
                 width="90%"
-                backgroundColor="lightgreen"
+                //backgroundColor="lightgreen"
                 padding="1rem"
-                border="1px solid black"
+                //border="1px solid black"
                 display="flex"
                 justifyContent="space-around"
                 alignItems="center"
-                sx={{flexDirection: (mediaQuery ? 'row' : 'column-reverse')}}
+                sx={{flexDirection: 'column-reverse'}}
             >
                 <Box
                     sx={{
                         width: (mediaQuery ? '45%' : '90%'),
                         margin: (mediaQuery ? "0" : "1rem 0"),
-                        alignItems: (mediaQuery ? 'flex-start' : 'center'),
-                        textAlign: (mediaQuery ? 'left' : 'center')
+                        alignItems: "center",
+                        textAlign: 'center'
                     }}
-                    backgroundColor="lightpink"
+                    //backgroundColor="lightpink"
                     padding="1rem"
-                    border="1px solid black"
+                    //border="1px solid black"
                     height={(mediaQuery ? '95%' : 'auto')}
                     display="flex"
                     flexDirection="column"
                     justifyContent="center"
                 >
-                    <img src={`${process.env.PUBLIC_URL}/img/iconin.png`} alt="NieveIcon" 
-                        style={{ width: (mediaQuery ? "30%" : "20%"), height: 'auto', maxWidth: "200px", margin: "1rem 0"}}
-                    />
                     <Typography
-                        variant="h1"
+                        variant={(mediaQuery ? 'special' : 'specialPhone')}
                         sx={{
-                            margin: '0.5rem',
-                            fontSize: (mediaQuery ? '2rem' : '1.5rem'),
-                            fontWeight: '450'
+                            margin: '0.5rem'
                         }}
                     >
                         {t('mainAnnouncementTitle')}
                     </Typography>
                     <Typography
-                        variant="h3"
+                        variant={(mediaQuery ? 'h3' : 'h3P')}
                         sx={{
                             margin: '0.5rem',
-                            fontSize: (mediaQuery ? '1.5rem' : '1rem'),
                         }}
                     >
                         {t('mainAnnouncementDescription')}
                     </Typography>
-                    <Button
-                        variant="contained"
+                    <Typography
+                        variant={(mediaQuery ? 'body1' : 'body1P')}
+                        onClick={() => scrollToSection(flavorsRef)}
                         sx={{
                             margin: (mediaQuery ? '1.5rem 0' : '0.75rem 0'),
-                            backgroundColor: (colors.orangey),
-                            color: 'white',
-                            fontSize: (mediaQuery ? '1.5rem' : '1rem'),
+                            backgroundColor: (colors.darkgreeny),
                             width: '50%',
-                            borderRadius: '50px',
+                            padding: '0.5rem 0',
+                            borderRadius: '15px',
+                            "&:hover": {
+                                backgroundColor: colors.greeny,
+                                cursor: 'pointer'
+                            }
                             
                         }}
                         
                     >
                         {t('mainAnnouncementButton')}
-                    </Button>
+                    </Typography>
                 </Box>
 
                 <Box
                     sx={{
-                        width: (mediaQuery ? '45%' : '90%'),
+                        width: "90%",
                         margin: (mediaQuery ? "0" : "1rem 0")
                     }}
-                    backgroundColor="lightgray"
-                    padding="1rem"
-                    border="1px solid black"
+                    //backgroundColor="lightgray"
+                    //border="1px solid black"
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
                 >
-                    <img src={`${process.env.PUBLIC_URL}/img/nieve.png`} alt="Nieve" 
-                        style={{ width: (mediaQuery ? "70%" : "80%"), height: 'auto', maxWidth: "600px"}}
+                    <img src={(mediaQuery) ? `${process.env.PUBLIC_URL}/img/big3.png` : `${process.env.PUBLIC_URL}/img/big3P.png`} alt="Nieve" 
+                        style={{ 
+                            width: (mediaQuery ? "70%" : "100%"),
+                            maxWidth: "400px", 
+                            height: 'auto'
+                        }}
                     />
                 </Box>
             </Box>

@@ -1,46 +1,18 @@
 
 import "@egjs/react-flicking/dist/flicking.css";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import 'swiper/css/grid';
-import { Autoplay, Pagination, Navigation, Grid, FreeMode } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation, FreeMode } from 'swiper/modules';
 import "./swiperStyle.css";
+import reviews from "../utils/reviews";
+import ReviewCard from "./ReviewCard";
 
-    const images = [
-        {
-            name: "Almendra",
-            src: `${process.env.PUBLIC_URL}/img/toppings/almendra.jpg`
-        },
-        {
-            name: "Amaranto",
-            src: `${process.env.PUBLIC_URL}/img/toppings/amaranto.jpg`
-        },
-        {
-            name: "Blueberries",
-            src: `${process.env.PUBLIC_URL}/img/toppings/blueberries.jpg`
-        },
-        {
-            name: "Boba",
-            src: `${process.env.PUBLIC_URL}/img/toppings/boba.avif`
-        },
-        {
-            name: "Cajeta",
-            src: `${process.env.PUBLIC_URL}/img/toppings/cajeta.jpeg`
-        },
-        {
-            name: "Captain Crunch",
-            src: `${process.env.PUBLIC_URL}/img/toppings/captain.jpg`
-        },
-        {
-            name: "Cherry",
-            src: `${process.env.PUBLIC_URL}/img/toppings/cherry.jpeg`
-        }
-    ]
 
-const Slider = () => {
+
+const Slider = ({language}) => {
 
     return (
         <Box
@@ -52,27 +24,37 @@ const Slider = () => {
                 loop={true}
                 freeMode={true}
                 slidesPerView={3}
-                grid={{
-                    rows: 2,
-                }}
                 autoplay={{
-                delay: 1500,
-                disableOnInteraction: false,
+                    delay: 4000,
+                    disableOnInteraction: true,
                 }}
                 pagination={{
                 clickable: true,
                 }}
-                //navigation={true}
-                modules={[Autoplay, Pagination, Navigation, Grid, FreeMode]}
+                modules={[Autoplay, Pagination, Navigation, FreeMode]}
                 className="mySwiper"
             >
-                <SwiperSlide>Slid 1</SwiperSlide>
+                
                 {
-                    images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                            <img src={image.src} alt={image.name} />
-                        </SwiperSlide>
-                    ))
+                    reviews[language]["reviews"].map((review, index) => {
+                        return(
+                            <SwiperSlide key={index}>
+                                <Box
+                                    display="flex"
+                                    flexDirection="column"
+                                    alignItems="center"
+                                    justifyContent="center"
+                                    width="90%"
+                                    height="90%"
+                                    maxWidth="450px"
+                                    padding="1rem"
+                                >
+                                    <ReviewCard review={review}></ReviewCard>
+                                </Box>
+                            </SwiperSlide>
+                        )
+                        
+                    })
                 }
             </Swiper>
         </Box>

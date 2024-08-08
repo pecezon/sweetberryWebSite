@@ -21,6 +21,22 @@ const Nav = ({mediaQuery, changeLanguage, language, links, t}) => {
         }
     }
 
+    const scrollToSection = (elementRef) => {
+        if (elementRef && elementRef.current) {
+            elementRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }else{
+            console.log('Pendejo');
+        }
+    };
+
+    const handleLinkClick = (ref) => {
+        scrollToSection(ref);
+        setIsMenuOpen(false);
+    };
+
     return (
         <>
             <Box
@@ -28,8 +44,13 @@ const Nav = ({mediaQuery, changeLanguage, language, links, t}) => {
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
-                position="relative"
-                zIndex="0"
+                padding="1rem 0"
+                position="fixed"
+                top="0"
+                left="0"
+                zIndex="1000"
+                bgcolor="white"
+                boxShadow="0px 2px 10px rgba(0, 0, 0, 0.1)"
             >
                 <Box
                     display="flex"
@@ -55,7 +76,7 @@ const Nav = ({mediaQuery, changeLanguage, language, links, t}) => {
                     >
                         {Object.keys(links).map((link, index) => {
                             return (
-                                <Link key={index} href={links[link]} underline="none"
+                                <Typography key={index} onClick={() => scrollToSection(links[link].href)}
                                     style={{
                                         margin: '0 1rem',
                                         fontSize: '1.25rem',
@@ -65,7 +86,7 @@ const Nav = ({mediaQuery, changeLanguage, language, links, t}) => {
                                     }}
                                 >
                                     {t(link)}
-                                </Link>
+                                </Typography>
                             );
                         })}
                     </Box>
@@ -146,7 +167,7 @@ const Nav = ({mediaQuery, changeLanguage, language, links, t}) => {
                 </IconButton>
 
                 {Object.keys(links).map((link, index) => (
-                    <Link key={index} href={links[link]["href"]} underline="none"
+                    <Typography key={index} href={links[link].href}
                     style={{
                         margin: '1rem 0',
                         fontSize: '1.5rem',
@@ -154,10 +175,10 @@ const Nav = ({mediaQuery, changeLanguage, language, links, t}) => {
                         textDecoration: 'none',
                         cursor: 'pointer'
                     }}
-                    onClick={handleIsMenuOpen}
+                    onClick={() => handleLinkClick(links[link].href)}
                     >
                         {t(link)}
-                    </Link>
+                    </Typography>
                 ))}
                 </Box>
             )}

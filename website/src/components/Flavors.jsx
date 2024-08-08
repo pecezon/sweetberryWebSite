@@ -1,14 +1,16 @@
 import { Box, Typography, Rating, Snackbar, Button } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
-import React from "react";
+import colors from "../utils/colors";
+import React, {forwardRef} from "react";
 import axios from "axios";
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 
 
-const Flavors = ({ flavor, mediaQuery, t }) => {
+const Flavors = forwardRef((props, ref) => {
 
+    const { flavor, mediaQuery, t } = props;
     const [flavors, setFlavors] = useState([]);
     const [userRatings, setUserRatings] = useState({});
 
@@ -78,17 +80,18 @@ const Flavors = ({ flavor, mediaQuery, t }) => {
         <Box
             width="100%"
             display="flex"
-            backgroundColor="lightblue"
-            margin="1rem"
-            sx={{padding: (mediaQuery ? '1.5rem' : '1rem')}}
-            border="1px solid black"
+            backgroundColor={colors.fadedorangey}
+            //margin="1rem"
+            //sx={{padding: (mediaQuery ? '1.5rem' : '1rem')}}
+            //border="1px solid black"
             justifyContent="center"
+            ref={ref}
         >
             <Box
                 width="90%"
-                backgroundColor="lightgreen"
+                //backgroundColor="lightgreen"
                 padding="1rem"
-                border="1px solid black"
+                //border="1px solid black"
                 display="flex"
                 justifyContent="space-around"
                 alignItems="center"
@@ -96,16 +99,8 @@ const Flavors = ({ flavor, mediaQuery, t }) => {
             >
                 
                 <Typography
-                    variant="h1"
-                    fontWeight="350"
+                    variant={(mediaQuery ? "h2" : "h2P")}
                     margin="1rem 0"
-                    sx={(
-                        mediaQuery ? {
-                            fontSize: '2rem',
-                        } : {
-                            fontSize: '1.5rem',
-                        }
-                    )}
                 >{t("flavors")}</Typography>
                 <Box
                     display="flex"
@@ -119,7 +114,7 @@ const Flavors = ({ flavor, mediaQuery, t }) => {
                             minWidth="125px"
                             maxWidth="200px"
                             padding={(mediaQuery ? '1rem' : '0rem')}
-                            border="1px solid black"
+                            //border="1px solid black"
                             display="flex"
                             flexDirection="column"
                             alignItems="center"
@@ -135,7 +130,9 @@ const Flavors = ({ flavor, mediaQuery, t }) => {
                                 justifyContent="center"
                             >
                                 <StarBorderOutlinedIcon sx={{marginRight:"0.5rem"}}/>
-                                <Typography>{(flavor.ratings.reduce((a, b) => a + b, 0) / flavor.ratings.length).toFixed(1)} Review</Typography>
+                                <Typography
+                                    variant={(mediaQuery ? "body1" : "body1P")}
+                                >{(flavor.ratings.reduce((a, b) => a + b, 0) / flavor.ratings.length).toFixed(1)} Review</Typography>
                             </Box>
                             
                             <Rating
@@ -146,7 +143,12 @@ const Flavors = ({ flavor, mediaQuery, t }) => {
                         </Box>
                     ))}
                 </Box>
-                <Typography>
+                <Typography
+                    variant={(mediaQuery ? "body1" : "body1P")}
+                    fontWeight="300"
+                    margin="1rem 0"
+                    textAlign="center"
+                >
                     {t("rateUs")}
                 </Typography>
             </Box>
@@ -160,6 +162,6 @@ const Flavors = ({ flavor, mediaQuery, t }) => {
             />
         </Box>
     )
-}
+})
 
 export default Flavors;

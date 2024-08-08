@@ -1,5 +1,3 @@
-import { light } from "@mui/material/styles/createPalette";
-
 
 const colors = {
     bluey: "#0092FF",
@@ -12,6 +10,11 @@ const colors = {
     lighterbluey: "rgba(0, 146, 255, 0.3)",
     lightorangey: "#FFDE8E",
     lightdarkgrey: "#333333",
+    fadedgreeny: "#B9C57F",
+    fadedbluey: "#A1D7FF",
+    fadedorangey: "#FFE6AA",
+    fadedpinky: "#FFB9E0",
+    darkgreeny: "#8DA127",
 }
 
 export default colors;

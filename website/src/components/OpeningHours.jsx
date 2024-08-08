@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import colors from "../utils/colors";
 
 const OpeningHours = ({mediaQuery, t}) => {
     const schedule = [
@@ -15,17 +16,17 @@ const OpeningHours = ({mediaQuery, t}) => {
         <Box
             width="100%"
             display="flex"
-            backgroundColor="lightblue"
-            margin="1rem"
-            sx={{padding: (mediaQuery ? '1.5rem' : '1rem')}}
-            border="1px solid black"
+            backgroundColor={colors.fadedpinky}
+            //margin="1rem"
+            //sx={{padding: (mediaQuery ? '1.5rem' : '1rem')}}
+            //border="1px solid black"
             justifyContent="center"
         >
             <Box
                 width="90%"
-                backgroundColor="lightgreen"
+                //backgroundColor="lightgreen"
                 padding="1rem"
-                border="1px solid black"
+                //border="1px solid black"
                 display="flex"
                 justifyContent="space-around"
                 alignItems="center"
@@ -37,9 +38,9 @@ const OpeningHours = ({mediaQuery, t}) => {
                         width: (mediaQuery ? '45%' : '90%'),
                         margin: (mediaQuery ? "0" : "1rem 0")
                     }}
-                    backgroundColor="lightgray"
+                    //backgroundColor="lightgray"
                     padding="1rem"
-                    border="1px solid black"
+                    //border="1px solid black"
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
@@ -53,35 +54,33 @@ const OpeningHours = ({mediaQuery, t}) => {
                     sx={{
                         width: (mediaQuery ? '45%' : '90%'),
                         margin: (mediaQuery ? "0" : "1rem 0"),
-                        alignItems: (mediaQuery ? 'flex-start' : 'center'),
-                        textAlign: (mediaQuery ? 'left' : 'center')
                     }}
-                    backgroundColor="lightpink"
+                    //backgroundColor="lightpink"
                     padding="1rem"
-                    border="1px solid black"
+                    //border="1px solid black"
                     height={(mediaQuery ? '95%' : 'auto')}
                     display="flex"
                     flexDirection="column"
                     justifyContent="center"
+                    alignItems="center"
+                    textAlign="center"
                 >
+                    <Typography margin="2rem" variant={(mediaQuery)?"h2":"h2P"}>{t('hours')}</Typography>
                     <Box 
                     sx={{
+                        width: (mediaQuery ? '100%' : '70%'),
                         padding: '2rem',
                         backgroundColor: '#f9f9f9',
                         borderRadius: '8px',
                         boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-                        maxWidth: '400px',
+                        maxWidth: '600px',
                         margin: '0 auto'
                     }}
                     >
-                    <Typography variant="h4" align="center" gutterBottom>
-                        {t('hours')}
-                    </Typography>
                     {schedule.map((day, index) => (
                         <Box key={index} display="flex" justifyContent="space-between" mb={1}>
-                        <Typography variant="body1">{t(day.day)}</Typography>
-                        <Typography variant="body1" m="0.25rem 0.5rem">- - -</Typography>
-                        <Typography variant="body1">{day.hours}</Typography>
+                        <Typography variant={(mediaQuery)?"body1":"body1P"}>{t(day.day)}</Typography>
+                        <Typography variant={(mediaQuery)?"body1":"body1P"}>{day.hours}</Typography>
                         </Box>
                     ))}
                     </Box>

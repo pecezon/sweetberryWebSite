@@ -10,7 +10,7 @@ app.use(express.json());
 require('dotenv').config();
 
 const uri = process.env.URI;
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri, {serverSelectionTimeoutMS: 100000 })
     .then(() => console.log('Database connected successfully'))
     .catch(err => console.log('Database connection error:', err));
 
