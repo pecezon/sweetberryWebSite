@@ -17,7 +17,7 @@ const Flavors = forwardRef((props, ref) => {
     useEffect(() => {
         const fetchFlavors = async () => {
             try{
-                const response = await axios.get('http://localhost:3001/flavors');
+                const response = await axios.get('sweetberry-server.vercel.app/flavors');
                 setFlavors(response.data);
             }catch(error){
                 console.error("Error fetching flavors", error);
