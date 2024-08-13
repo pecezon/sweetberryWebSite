@@ -275,7 +275,7 @@ const Toppings = forwardRef((props, ref) => {
                         border="1px solid black"
                         borderRadius="50px"
                         textAlign="center"
-                    >Dulces y Otros</Typography>
+                    >{t("Dulces y Otros")}</Typography>
 
                     
 
