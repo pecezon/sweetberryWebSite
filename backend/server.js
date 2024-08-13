@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin:["sweetberry-server.vercel.app"],
+    origin:["https://sweetberry-server.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
 }));
