@@ -17,7 +17,7 @@ const Flavors = forwardRef((props, ref) => {
     useEffect(() => {
         const fetchFlavors = async () => {
             try{
-                const response = await axios.get('sweetberry-server.vercel.app/flavors');
+                const response = await axios.get('https://sweetberry-server.vercel.app/flavors');
                 setFlavors(response.data);
             }catch(error){
                 console.error("Error fetching flavors", error);
@@ -40,8 +40,8 @@ const Flavors = forwardRef((props, ref) => {
             localStorage.setItem('userRatings', JSON.stringify(updatedRatings));
 
             try{
-                await axios.post('sweetberry-server.vercel.app/rate', {flavorId, rating: rating});
-                const response = await axios.get('sweetberry-server.vercel.app/flavors');
+                await axios.post('https://sweetberry-server.vercel.app/rate', {flavorId, rating: rating});
+                const response = await axios.get('https://sweetberry-server.vercel.app/flavors');
                 setFlavors(response.data);
             }catch(error){
                 console.error("Error rating flavor", error);
