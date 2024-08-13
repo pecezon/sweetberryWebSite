@@ -40,8 +40,8 @@ const Flavors = forwardRef((props, ref) => {
             localStorage.setItem('userRatings', JSON.stringify(updatedRatings));
 
             try{
-                await axios.post('http://localhost:3001/rate', {flavorId, rating: rating});
-                const response = await axios.get('http://localhost:3001/flavors');
+                await axios.post('sweetberry-server.vercel.app/rate', {flavorId, rating: rating});
+                const response = await axios.get('sweetberry-server.vercel.app/flavors');
                 setFlavors(response.data);
             }catch(error){
                 console.error("Error rating flavor", error);
