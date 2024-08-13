@@ -14,7 +14,7 @@ app.use(express.json());
 require('dotenv').config();
 
 const uri = process.env.URI;
-mongoose.connect(uri, {serverSelectionTimeoutMS: 100000 })
+mongoose.connect(uri)
     .then(() => console.log('Database connected successfully'))
     .catch(err => console.log('Database connection error:', err));
 
@@ -24,6 +24,10 @@ const flavorSchema = new mongoose.Schema({
 });
 
 const Flavor = mongoose.model('Flavor', flavorSchema);
+
+app.get('/', (req, res) => {
+    res.send('Sweetberry API');
+});
 
 app.get('/flavors', async (req, res) => {
     const flavors = await Flavor.find();
