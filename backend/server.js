@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Database connection
 const uri = process.env.URI;
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri)
     .then(() => console.log('Database connected successfully'))
     .catch(err => console.log('Database connection error:', err));
 
