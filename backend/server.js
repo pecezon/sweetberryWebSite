@@ -13,10 +13,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
-mongoose.set('strictQuery', false);
+mongoose.set('strictQuery', false); 
 
 // Database connection
-const uri = process.env.URI;
+const uri = "mongodb+srv://lopezdiego:milo1952@sweetberryweb.odr48rl.mongodb.net/?retryWrites=true&w=majority&appName=SweetberryWeb";
 mongoose.connect(uri)
     .then(() => console.log('Database connected successfully'))
     .catch(err => console.log('Database connection error:', err));
