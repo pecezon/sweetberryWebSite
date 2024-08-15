@@ -13,6 +13,8 @@ app.use(cors({
 }));
 app.use(express.json());
 
+mongoose.set('strictQuery', false);
+
 // Database connection
 const uri = process.env.URI;
 mongoose.connect(uri)
