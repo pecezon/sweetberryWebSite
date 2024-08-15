@@ -13,6 +13,8 @@ app.use(express.json());
 
 require('dotenv').config();
 
+module.exports = app;
+
 const uri = process.env.URI;
 mongoose.connect(uri)
     .then(() => console.log('Database connected successfully'))
