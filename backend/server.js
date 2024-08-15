@@ -7,7 +7,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: ["https://sweetberry-web.vercel.app"],
+    origin: ["https://sweetberry-web.vercel.app", "https://sweetberry-web-diego-lopezs-projects-6f753930.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
 }));
