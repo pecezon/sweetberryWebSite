@@ -17,7 +17,6 @@ mongoose.set('strictQuery', false);
 
 // Database connection
 const uri = process.env.URI;
-console.log(uri);
 mongoose.connect(uri)
     .then(() => console.log('Database connected successfully'))
     .catch(err => console.log('Database connection error:', err));
