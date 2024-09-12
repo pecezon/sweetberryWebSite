@@ -1,0 +1,16 @@
+# Ignorar entornos de desarrollo
+.env
+
+# Ignorar carpetas de dependencias
+node_modules/
+
+# Ignorar carpetas de compilación
+.next/
+dist/
+
+# Ignorar archivos específicos de tu entorno de desarrollo
+.vscode/
+.idea/
+
+# Ignorar archivos de configuración de despliegue
+.vercel/
