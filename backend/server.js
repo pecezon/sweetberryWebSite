@@ -19,7 +19,7 @@ mongoose.set('strictQuery', false);
 const uri = process.env.URI;
 mongoose.connect(uri)
     .then(() => console.log('Database connected successfully'))
-    .catch(err => console.log('Database connection error:', err, uri));
+    .catch(err => console.log('Database connection error:', err));
 
 // Define Schema and Model
 const flavorSchema = new mongoose.Schema({
