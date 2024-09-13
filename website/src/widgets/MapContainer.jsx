@@ -13,6 +13,7 @@ const center = {
 };
 
 const MapContainer = () => {
+    {console.log("Google Maps API Key: ", process.env.REACT_APP_MAPS_KEY)}
     return (
         <LoadScript googleMapsApiKey={process.env.REACT_APP_MAPS_KEY}>
             <GoogleMap
