@@ -1,5 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import colors from "../utils/colors";
+import MapContainer from "../widgets/MapContainer";
+
 
 const OpeningHours = ({mediaQuery, t}) => {
     const schedule = [
@@ -45,9 +47,12 @@ const OpeningHours = ({mediaQuery, t}) => {
                     justifyContent="center"
                     alignItems="center"
                 >
-                    <img src={`${process.env.PUBLIC_URL}/img/collage.png`} alt="Nieve" 
-                        style={{ width: (mediaQuery ? "70%" : "80%"), height: 'auto', maxWidth: "600px"}}
-                    />
+                    {/*
+                        <img src={`${process.env.PUBLIC_URL}/img/collage.png`} alt="Nieve" 
+                            style={{ width: (mediaQuery ? "70%" : "80%"), height: 'auto', maxWidth: "600px"}}
+                        />
+                    */}
+                    <MapContainer />
                 </Box>
 
                 <Box

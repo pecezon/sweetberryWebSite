@@ -16,7 +16,7 @@ app.use(express.json());
 mongoose.set('strictQuery', false); 
 
 // Database connection
-const uri = process.env.URI;
+const uri = process.env.NEXT_PUBLIC_URI;
 mongoose.connect(uri)
     .then(() => console.log('Database connected successfully'))
     .catch(err => console.log('Database connection error:', err));
